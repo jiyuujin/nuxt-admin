@@ -71,7 +71,7 @@
     "cssnano": "4.1.10",
     "eslint": "5.16.0",
     "eslint-loader": "2.2.1",
-    "eslint-plugin-vue": "4.7.1",
+    "eslint-plugin-vue": "5.2.3",
     "fork-ts-checker-webpack-plugin": "1.5.0",
     "hard-source-webpack-plugin": "0.13.1",
     "jest": "24.9.0",
