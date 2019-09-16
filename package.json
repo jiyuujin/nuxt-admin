@@ -44,7 +44,7 @@
     "@babel/preset-env": "7.6.0",
     "@nuxt/types": "0.2.11",
     "@nuxt/typescript-build": "0.2.6",
-    "@nuxt/typescript-runtime": "0.1.5",
+    "@nuxt/typescript-runtime": "0.1.6",
     "@storybook/addon-actions": "5.1.11",
     "@storybook/addon-links": "5.1.11",
     "@storybook/addons": "5.1.11",
