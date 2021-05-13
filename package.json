@@ -29,7 +29,7 @@
     "chart.js": "3.2.1",
     "core-js": "3.12.1",
     "dayjs": "1.10.4",
-    "firebase": "8.6.0",
+    "firebase": "8.6.1",
     "graphql": "15.5.0",
     "graphql-tag": "2.12.4",
     "node-fetch": "2.6.1",
