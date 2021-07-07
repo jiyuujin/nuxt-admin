@@ -54,7 +54,7 @@
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/vue": "5.8.1",
     "@types/chart.js": "2.9.34",
-    "@types/jest": "26.0.23",
+    "@types/jest": "26.0.24",
     "@types/node": "11.15.54",
     "@types/webpack": "4.41.30",
     "@types/webpack-env": "1.16.2",
