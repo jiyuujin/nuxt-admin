@@ -1,7 +1,7 @@
 <template>
   <main-template :user-status="userStatus">
     <modal title="問い合わせを確認する" @cancel="cancel">
-      <div :style="{ padding: '8px', height: '400px', overflowY: 'scroll' }">
+      <div class="contact">
         <div v-for="item in contacts.item" :key="item.id">
           <div v-if="item.page === state.activePage">
             <div class="px-4 py-2">
@@ -133,3 +133,7 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/_contact';
+</style>
