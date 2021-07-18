@@ -6,6 +6,8 @@ require('dotenv').config()
 const sass = require('sass')
 const fiber = require('fibers')
 
+import { useESBuildMinify, useESBuildLoader } from './client/modules/useESBuild'
+
 const GITHUB_API_V4: string = 'https://api.github.com/graphql'
 
 export default {
@@ -40,6 +42,15 @@ export default {
 
   build: {
     extend(config: Configuration, { isClient }: Context) {
+      useESBuildMinify(config)
+      useESBuildLoader(config, {
+        loader: 'jsx',
+        target: 'es2017'
+      })
+      useESBuildLoader(config, {
+        loader: 'tsx',
+        target: 'es2017'
+      })
       if (isClient) {
         config.devtool = '#source-map'
       }
