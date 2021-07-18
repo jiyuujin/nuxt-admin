@@ -1,5 +1,3 @@
-import dayjs from 'dayjs'
-
 export const fetchMeetups = async (): Promise<
   Array<{
     event_id: string
@@ -39,22 +37,4 @@ export const fetchMeetups = async (): Promise<
   result = json.data
 
   return result
-}
-
-export const drawChart = (items, categoryName, communityName) => {
-  const chartData: any = []
-
-  chartData.push(['日付', `${communityName} ${categoryName} 参加者数 (予定)`])
-  for (const i of items) {
-    if (i.community_name === communityName) {
-      if (i.category_name === categoryName) {
-        chartData.push([
-          dayjs(i.date).format('YYYY/MM/DD'),
-          i.category_name === categoryName ? Number(i.participants) : null
-        ])
-      }
-    }
-  }
-
-  return chartData
 }

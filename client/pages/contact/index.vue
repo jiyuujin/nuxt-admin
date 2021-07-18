@@ -18,64 +18,6 @@
         />
       </div>
     </modal>
-
-    <div :style="{ display: 'flex', flexWrap: 'wrap', width: '100%' }">
-      <google-chart
-        chart-type="ColumnChart"
-        :chart-data="chartData"
-        :chart-options="{
-          width: 450,
-          height: 300,
-          legend: { position: 'top', maxLines: 3 },
-          bar: { groupWidth: '75%' }
-        }"
-        style="width: 50%"
-      />
-      <google-chart
-        chart-type="ColumnChart"
-        :chart-data="chartDataByVue"
-        :chart-options="{
-          width: 450,
-          height: 300,
-          legend: { position: 'top', maxLines: 3 },
-          bar: { groupWidth: '75%' }
-        }"
-        style="width: 50%"
-      />
-      <google-chart
-        chart-type="ColumnChart"
-        :chart-data="chartDataByTypeScript"
-        :chart-options="{
-          width: 450,
-          height: 300,
-          legend: { position: 'top', maxLines: 3 },
-          bar: { groupWidth: '75%' }
-        }"
-        style="width: 50%"
-      />
-      <google-chart
-        chart-type="ColumnChart"
-        :chart-data="chartDataByFJUGMeetup"
-        :chart-options="{
-          width: 450,
-          height: 300,
-          legend: { position: 'top', maxLines: 3 },
-          bar: { groupWidth: '75%' }
-        }"
-        style="width: 50%"
-      />
-      <google-chart
-        chart-type="ColumnChart"
-        :chart-data="chartDataByFJUGHandson"
-        :chart-options="{
-          width: 450,
-          height: 300,
-          legend: { position: 'top', maxLines: 3 },
-          bar: { groupWidth: '75%' }
-        }"
-        style="width: 50%"
-      />
-    </div>
   </main-template>
 </template>
 
@@ -85,23 +27,14 @@ import { defineComponent, SetupContext } from '@vue/composition-api'
 import UserComposable from '~/composables/user'
 import ContactComposable from '~/composables/contact'
 
-import {
-  drawChart as drawContactChart,
-  fetchContacts
-} from '~/services/contactService'
-import {
-  drawChart as drawMeetupChart,
-  fetchMeetups
-} from '~/services/meetupService'
+import { fetchContacts } from '~/services/contactService'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const GoogleChart = () => import('~/components/GoogleChart.vue')
 const Modal = () => import('~/components/Modal.vue')
 
 export default defineComponent({
   components: {
     MainTemplate,
-    GoogleChart,
     Modal
   },
   middleware: 'auth',
@@ -112,23 +45,8 @@ export default defineComponent({
   },
   async asyncData() {
     const contacts = await fetchContacts()
-    const meetups = await fetchMeetups()
     return {
-      contacts: contacts,
-      chartData: drawContactChart(contacts.item),
-      meetups: meetups,
-      chartDataByVue: drawMeetupChart(meetups, 'meetup', 'v-kansai'),
-      chartDataByTypeScript: drawMeetupChart(meetups, 'meetup', 'kansai.ts'),
-      chartDataByFJUGMeetup: drawMeetupChart(
-        meetups,
-        'meetup',
-        'Flutter Osaka'
-      ),
-      chartDataByFJUGHandson: drawMeetupChart(
-        meetups,
-        'handson',
-        'Flutter Osaka'
-      )
+      contacts: contacts
     }
   }
 })

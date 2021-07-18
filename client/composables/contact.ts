@@ -14,9 +14,14 @@ export default (props, ctx: SetupContext) => {
     state.activePage = value
   }
 
+  const cancel = () => {
+    //
+  }
+
   return {
     state,
     titleText,
-    applyPage
+    applyPage,
+    cancel
   }
 }
